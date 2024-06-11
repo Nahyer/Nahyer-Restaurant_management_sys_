@@ -1,0 +1,34 @@
+GET http://localhost:3000/comments
+###
+
+GET http://localhost:3000/comments?limit=2
+###
+
+GET http://localhost:3000/comments/13
+###
+
+POST http://localhost:3000/comments/create
+Content-Type: application/json
+
+{
+  "order_id": 28,
+  "user_id": 9,
+  "comment_text": "Nostrum tres thorax.",
+  "is_complaint": false,
+  "is_praise": true
+}
+###
+
+PUT http://localhost:3000/comments/1
+Content-Type: application/json
+
+{
+ "order_id": 28,
+  "user_id": 9,
+  "comment_text": "Nostrum tres thorax.",
+  "is_complaint": false,
+  "is_praise": true
+}
+###
+
+DELETE http://localhost:3000/comments/12

@@ -1,0 +1,27 @@
+GET http://localhost:3000/states
+###
+GET http://localhost:3000/states/2000
+
+
+###
+POST http://localhost:3000/states/create
+Content-Type: application/json
+
+{
+    "name": "India",
+    "code": "IND",
+    "city" : "New Delhi"
+}
+
+###
+PUT http://localhost:3000/states/1
+Content-Type: application/json
+
+{
+    "name": "+3455999",
+    "code": "Nairobi, Kenya",
+    "city" : "kisimu"
+}
+
+###
+DELETE http://localhost:3000/states/6

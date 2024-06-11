@@ -1,0 +1,30 @@
+GET http://localhost:3000/city
+###
+
+GET http://localhost:3000/city?limit=2
+###
+
+GET http://localhost:3000/city/13
+###
+
+POST http://localhost:3000/city/create
+Content-Type: application/json
+
+{
+  "name": "Sample Name",
+  "code": "Sample Code",
+  "city": "Sample City"
+}
+###
+
+PUT http://localhost:3000/city/1
+Content-Type: application/json
+
+{
+  "name": "Updated Name",
+  "code": "Updated Code",
+  "city": "Updated City"
+}
+###
+
+DELETE http://localhost:3000/city/12

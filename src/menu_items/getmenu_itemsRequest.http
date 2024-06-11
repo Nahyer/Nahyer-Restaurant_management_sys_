@@ -1,0 +1,30 @@
+GET http://localhost:3000/menu_item
+###
+
+GET http://localhost:3000/menu_item?limit=2
+###
+
+GET http://localhost:3000/menu_item/13
+###
+
+POST http://localhost:3000/menu_item/create
+Content-Type: application/json
+
+{
+  "name": "Sample Name",
+  "code": "Sample Code",
+  "city": "Sample City"
+}
+###
+
+PUT http://localhost:3000/menu_item/1
+Content-Type: application/json
+
+{
+  "name": "Updated Name",
+  "code": "Updated Code",
+  "city": "Updated City"
+}
+###
+
+DELETE http://localhost:3000/menu_item/12
