@@ -5,13 +5,56 @@ import { TIComments, TSComments, comments } from "../drizzle/schema";
 export const getCommentssService = async (limit?: number): Promise<TSComments[] | null> => {
   if (limit) {
    return await db.query.comments.findMany({
+    with:{
+      users:{
+        columns:{
+          name: true
+        }
+      },
+      orders:{
+        columns:{
+          actual_delivery_time: true,
+          price: true,
+          restaurant_id: true
+        }
+      }
+     },
       limit: limit,
     });
   }
-  return await db.query.comments.findMany();
+  return await db.query.comments.findMany({
+    with:{
+      users:{
+        columns:{
+          name: true
+        }
+      },
+      orders:{
+        columns:{
+          actual_delivery_time: true,
+          price: true,
+          restaurant_id: true
+        }
+      }
+     },
+  });
 };
 export const getCommentsByIdService = async (id: number): Promise<TSComments | undefined> => {
   return await db.query.comments.findFirst({
+    with:{
+      users:{
+        columns:{
+          name: true
+        }
+      },
+      orders:{
+        columns:{
+          actual_delivery_time: true,
+          price: true,
+          restaurant_id: true
+        }
+      }
+     },
      where: eq(comments.id,id)
     })
 }

@@ -5,13 +5,59 @@ import { TIDriver, TSDriver, driver } from "../drizzle/schema";
 export const getDriversService = async (limit?: number): Promise<TSDriver[] | null> => {
   if (limit) {
    return await db.query.driver.findMany({
+    with:{
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true
+        }
+      },
+      orders:{
+        columns:{
+          actual_delivery_time: true,
+          price: true,
+          restaurant_id: true
+        }
+      }
+     },
       limit: limit,
     });
   }
-  return await db.query.driver.findMany();
+  return await db.query.driver.findMany({
+    with:{
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true
+        }
+      },
+      orders:{
+        columns:{
+          actual_delivery_time: true,
+          price: true,
+          restaurant_id: true
+        }
+      }
+     },
+  });
 };
 export const getDriverByIdService = async (id: number): Promise<TSDriver | undefined> => {
   return await db.query.driver.findFirst({
+    with:{
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true
+        }
+      },
+      orders:{
+        columns:{
+          actual_delivery_time: true,
+          price: true,
+          restaurant_id: true
+        }
+      }
+     },
      where: eq(driver.id,id)
     })
 }

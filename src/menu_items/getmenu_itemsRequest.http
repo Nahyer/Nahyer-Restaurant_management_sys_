@@ -11,19 +11,27 @@ POST http://localhost:3000/menu_item/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+  "name": "nomee",
+    "restaurant_id": 9,
+    "category_id": 8,
+    "description": "Thymbra adeo cariosus volaticus venustas suffoco pecus tenax territo.",
+    "ingredients": "Versus versus terga ciminatio vorax.",
+    "price": 808.00,
+    "active": false
 }
 ###
 
-PUT http://localhost:3000/menu_item/1
+PUT http://localhost:3000/menu_item/11
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+ "name": "Towels",
+    "restaurant_id": 9,
+    "category_id": 8,
+    "description": "Thymbra adeo cariosus volaticus venustas suffoco pecus tenax territo.",
+    "ingredients": "Versus versus terga ciminatio vorax.",
+    "price": 808.00,
+    "active": false
 }
 ###
 

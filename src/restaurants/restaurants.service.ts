@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { Column, eq } from "drizzle-orm";
 import db from "../drizzle/db";
 import { TIRestaurant, TSRestaurant, restaurant } from "../drizzle/schema";
 
@@ -6,12 +6,61 @@ export const getRestaurantsService = async (limit?: number): Promise<TSRestauran
   if (limit) {
    return await db.query.restaurant.findMany({
       limit: limit,
+      with:{
+        city:{
+          columns:{
+            name: true,
+          }
+        },
+        menu_item:{
+          columns:{
+            name: true,
+            price: true,
+            ingredients: true,
+            description: true
+
+          }
+        }
+       }
     });
   }
-  return await db.query.restaurant.findMany();
+  return await db.query.restaurant.findMany({
+    with:{
+      city:{
+        columns:{
+          name: true,
+        }
+      },
+      menu_item:{
+        columns:{
+          name: true,
+          price: true,
+          ingredients: true,
+          description: true
+
+        }
+      }
+     }
+  });
 };
 export const getRestaurantByIdService = async (id: number): Promise<TSRestaurant | undefined> => {
   return await db.query.restaurant.findFirst({
+    with:{
+      city:{
+        columns:{
+          name: true,
+        }
+      },
+      menu_item:{
+        columns:{
+          name: true,
+          price: true,
+          ingredients: true,
+          description: true
+
+        }
+      }
+     },
      where: eq(restaurant.id,id)
     })
 }

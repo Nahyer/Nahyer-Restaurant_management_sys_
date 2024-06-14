@@ -1,11 +1,12 @@
 import { Hono } from "hono";
 import { ListsStates, CreateState,
      GetStateById, UpdateState, DeleteState} from "./states.controller";
+import { adminRoleAuth, userRoleAuth } from "../middleware/beareAuth";
 
 export const statesRouter = new Hono().basePath('/states')
 
-statesRouter.get("/", ListsStates);
-statesRouter.get("/:id", GetStateById);
-statesRouter.post("/create", CreateState);
-statesRouter.put("/:id", UpdateState);
-statesRouter.delete("/:id", DeleteState);
+statesRouter.get("/",userRoleAuth, ListsStates);
+statesRouter.get("/:id",userRoleAuth, GetStateById);
+statesRouter.post("/create",adminRoleAuth, CreateState);
+statesRouter.put("/:id",adminRoleAuth, UpdateState);
+statesRouter.delete("/:id",adminRoleAuth, DeleteState);

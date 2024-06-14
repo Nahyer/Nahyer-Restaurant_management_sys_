@@ -5,6 +5,18 @@ import { TIOrder_status, TSOrder_status, order_status } from "../drizzle/schema"
 export const getOrder_statussService = async (limit?: number): Promise<TSOrder_status[] | null> => {
   if (limit) {
    return await db.query.order_status.findMany({
+    with:{
+      orders:{
+        columns:{
+          delivery_address_id: true,
+        }
+      },
+      status_catalog:{
+        columns:{
+          name: true,
+        }
+      }
+     },
       limit: limit,
     });
   }
@@ -12,6 +24,18 @@ export const getOrder_statussService = async (limit?: number): Promise<TSOrder_s
 };
 export const getOrder_statusByIdService = async (id: number): Promise<TSOrder_status | undefined> => {
   return await db.query.order_status.findFirst({
+    with:{
+      orders:{
+        columns:{
+          delivery_address_id: true,
+        }
+      },
+      status_catalog:{
+        columns:{
+          name: true,
+        }
+      }
+     },
      where: eq(order_status.id,id)
     })
 }

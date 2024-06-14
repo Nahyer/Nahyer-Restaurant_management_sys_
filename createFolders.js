@@ -24,7 +24,7 @@ const folders = [
 
   'order_menu_items',
 
-  'order_statuss',
+  'order_status',
 
   'status_catalogs'
 ];

@@ -18,8 +18,7 @@ export const cityRelation = relations(city, ({one,many})=>({
 export const state = pgTable("state",{
     id: serial("id").primaryKey(),
     name: varchar("name").notNull(),
-    code: varchar("code").notNull(),
-    city: varchar("city").notNull()
+    code: varchar("code").notNull()
 })
 
 export const stateRelation = relations(state, ({many})=>({
@@ -39,7 +38,7 @@ export const restaurant = pgTable("restaurant",{
 })
 
 export const restaurantRelation = relations(restaurant, ({one,many})=>({
-  
+    menu_item: many(menu_item),
     restaurant_owner: many(restaurant_owner),
     city: one(city, {
         fields:[restaurant.city_id],
@@ -92,15 +91,19 @@ export const users = pgTable("users",{
     id: serial("id").primaryKey(),
     name: varchar("name").notNull(),
     contact_phone: varchar("contact_phone").notNull(),
+    // username: varchar("username").notNull(),
     phone_verified: boolean("phone_verified").notNull(),
     email: varchar("email").notNull(),
     email_verified: boolean("email_verified").notNull(),
     confirmation_code: varchar("confirmation_code").notNull(),
-    password: text("password").notNull(),
     created_at: timestamp("created_at").defaultNow(),
     updated_at: timestamp("updated_at").defaultNow()
 })
-export const usersRelation = relations(users, ({many})=>({
+export const usersRelation = relations(users, ({one,many})=>({
+    auth: one(auth_on_users, {
+        fields:[users.id],
+        references:[auth_on_users.user_id]
+    }),
     restaurant_owner: many(restaurant_owner),
     address: many(address),
     driver: many(driver),
@@ -261,7 +264,7 @@ export const status_catalogRelation = relations(status_catalog, ({many})=>({
     order_status: many(order_status)
 }))
 
-export const role_enum = pgEnum("role_enum",["admin","user"])
+export const role_enum = pgEnum("role_enum",["admin","user","driver","restaurantOwner"])
 export const auth_on_users = pgTable("auth_on_users",{
     id: serial("id").primaryKey(),
     user_id: integer("user_id").notNull().references(()=>users.id,{onDelete: "cascade"}),

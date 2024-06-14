@@ -1,4 +1,5 @@
 GET http://localhost:3000/restaurant
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcxODI2MTEzNn0.Sa6SjTElND47KQnssSYMjEyEFDX-LzVwGJEtbzH_OFY
 ###
 
 GET http://localhost:3000/restaurant?limit=2
@@ -11,19 +12,21 @@ POST http://localhost:3000/restaurant/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+   "name": "bricks-and-suu",
+    "street_address": "659 Lincoln Highway",
+    "zip_code": "24349-7015",
+    "city_id": 10
 }
 ###
 
 PUT http://localhost:3000/restaurant/1
 Content-Type: application/json
 
-{
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+{ 
+  "name": "bricks-and-clicks",
+    "street_address": "659 Lincoln Highway",
+    "zip_code": "24349-7015",
+    "city_id": 10
 }
 ###
 

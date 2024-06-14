@@ -11,19 +11,25 @@ POST http://localhost:3000/address/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+    "street_address_1": "huuu",
+    "street_address_2": "sadasdsadas",
+    "zip_code": "2323",
+    "delivery_instructions": "sdsfsdgdfg",
+    "user_id": 2,
+    "city_id": 1
 }
 ###
 
-PUT http://localhost:3000/address/1
+PUT http://localhost:3000/address/14
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+    "street_address_1": "mwaaa",
+    "street_address_2": "sadasdsadas",
+    "zip_code": "2323",
+    "delivery_instructions": "sdsfsdgdfg",
+    "user_id": 2,
+    "city_id": 1
 }
 ###
 

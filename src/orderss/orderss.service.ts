@@ -5,10 +5,37 @@ import { TIOrders, TSOrders, orders } from "../drizzle/schema";
 export const getOrderssService = async (limit?: number): Promise<TSOrders[] | null> => {
   if (limit) {
    return await db.query.orders.findMany({
+    with:{
+      driver:{
+        columns:{
+          car_make: true,
+        }
+      },
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true
+        }
+      }
+     },
       limit: limit,
     });
   }
-  return await db.query.orders.findMany();
+  return await db.query.orders.findMany({
+    with:{
+      driver:{
+        columns:{
+          car_make: true,
+        }
+      },
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true
+        }
+      }
+     },
+  });
 };
 export const getOrdersByIdService = async (id: number): Promise<TSOrders | undefined> => {
   return await db.query.orders.findFirst({

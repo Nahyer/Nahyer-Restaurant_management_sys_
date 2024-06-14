@@ -11,19 +11,25 @@ POST http://localhost:3000/driver/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+  "car_make": "Ferrari",
+    "car_model": "F-150",
+    "car_year": 68,
+    "user_id": 4,
+    "online": true,
+    "delivering": true
 }
 ###
 
-PUT http://localhost:3000/driver/1
+PUT http://localhost:3000/driver/4
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+    "car_make": "lambo",
+    "car_model": "F-150",
+    "car_year": 68,
+    "user_id": 10,
+    "online": true,
+    "delivering": true
 }
 ###
 

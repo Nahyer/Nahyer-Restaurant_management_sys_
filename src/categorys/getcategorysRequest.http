@@ -11,9 +11,7 @@ POST http://localhost:3000/category/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+  "name": "slippers"
 }
 ###
 
@@ -21,9 +19,7 @@ PUT http://localhost:3000/category/1
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+  "name": "corp"
 }
 ###
 

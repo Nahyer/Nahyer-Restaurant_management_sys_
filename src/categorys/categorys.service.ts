@@ -5,6 +5,14 @@ import { TICategory, TSCategory, category } from "../drizzle/schema";
 export const getCategorysService = async (limit?: number): Promise<TSCategory[] | null> => {
   if (limit) {
    return await db.query.category.findMany({
+    with:{
+      menu_item:{
+        columns:{
+         name: true,
+         restaurant_id: true,
+        }
+      }
+    },
       limit: limit,
     });
   }

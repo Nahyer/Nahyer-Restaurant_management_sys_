@@ -5,10 +5,37 @@ import { TIOrder_menu_item, TSOrder_menu_item, order_menu_item } from "../drizzl
 export const getOrder_menu_itemsService = async (limit?: number): Promise<TSOrder_menu_item[] | null> => {
   if (limit) {
    return await db.query.order_menu_item.findMany({
+    with:{
+      orders:{
+        columns:{
+          delivery_address_id: true,
+        }
+      },
+      menu_item:{
+        columns:{
+          name: true,
+          price: true,
+        }
+      }
+     },
       limit: limit,
     });
   }
-  return await db.query.order_menu_item.findMany();
+  return await db.query.order_menu_item.findMany({
+    with:{
+      orders:{
+        columns:{
+          delivery_address_id: true,
+        }
+      },
+      menu_item:{
+        columns:{
+          name: true,
+          price: true,
+        }
+      }
+     }
+  });
 };
 export const getOrder_menu_itemByIdService = async (id: number): Promise<TSOrder_menu_item | undefined> => {
   return await db.query.order_menu_item.findFirst({

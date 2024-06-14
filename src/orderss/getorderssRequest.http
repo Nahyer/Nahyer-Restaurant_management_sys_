@@ -11,9 +11,13 @@ POST http://localhost:3000/orders/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+    "restaurant_id": 19,
+    "delivery_address_id": 21,
+    "user_id": 8,
+    "driver_id": 5,
+    "price": 873.00,
+    "discount": 553.00,
+    "final_price": 272.00
 }
 ###
 
@@ -21,9 +25,13 @@ PUT http://localhost:3000/orders/1
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+  "restaurant_id": 19,
+    "delivery_address_id": 21,
+    "user_id": 8,
+    "driver_id": 5,
+    "price": 873.00,
+    "discount": 553.00,
+    "final_price": 272.00
 }
 ###
 

@@ -6,13 +6,35 @@ export const getStatus_catalogsService = async (limit?: number): Promise<TSStatu
   if (limit) {
    return await db.query.status_catalog.findMany({
       limit: limit,
+      with:{
+        order_status:{
+          columns:{
+            order_id: true,
+          }
+        }
+       }
     });
   }
-  return await db.query.status_catalog.findMany();
+  return await db.query.status_catalog.findMany({
+    with:{
+      order_status:{
+        columns:{
+          order_id: true,
+        }
+      }
+     }
+  });
 };
 export const getStatus_catalogByIdService = async (id: number): Promise<TSStatus_catalog | undefined> => {
   return await db.query.status_catalog.findFirst({
-     where: eq(status_catalog.id,id)
+     where: eq(status_catalog.id,id),
+     with:{
+      order_status:{
+        columns:{
+          order_id: true,
+        }
+      }
+     }
     })
 }
 

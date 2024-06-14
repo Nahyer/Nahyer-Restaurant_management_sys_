@@ -43,3 +43,4 @@ export const loginUser = async (c: Context) => {
         return c.json(e?.message, 400)
     }
 }
+

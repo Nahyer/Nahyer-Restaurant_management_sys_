@@ -19,14 +19,16 @@ import { cityRouter } from './citys/citys.router'
 import { addressRouter } from './addresses/addresses.router'
 import {trimTrailingSlash} from "hono/trailing-slash";
 import { authRouter } from './auth/auth.router'
+import ejs from 'ejs'
 
 
 const app = new Hono({ strict: true})
+
 app.use(logger()) 
 app.use(trimTrailingSlash())
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
+  return c.html(ejs.renderFile('./src/index.html'))
 })
 
 app.notFound((c) => {

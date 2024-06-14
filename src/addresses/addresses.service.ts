@@ -5,10 +5,37 @@ import { TIAddress, TSAddress, address } from "../drizzle/schema";
 export const getAddresssService = async (limit?: number): Promise<TSAddress[] | null> => {
   if (limit) {
    return await db.query.address.findMany({
+    with:{
+      orders:{
+        columns:{
+          delivery_address_id: true,
+          estimated_delivery_time: true,
+        }
+      },
+      city:{
+        columns:{
+          name: true
+        }
+      }
+     },
       limit: limit,
     });
   }
-  return await db.query.address.findMany();
+  return await db.query.address.findMany({
+    with:{
+      orders:{
+        columns:{
+          delivery_address_id: true,
+          estimated_delivery_time: true,
+        }
+      },
+      city:{
+        columns:{
+          name: true
+        }
+      }
+     },
+  });
 };
 export const getAddressByIdService = async (id: number): Promise<TSAddress | undefined> => {
   return await db.query.address.findFirst({

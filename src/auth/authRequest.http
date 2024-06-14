@@ -2,10 +2,15 @@ POST  http://localhost:3000/auth/sign_up
 Content-Type: application/json
 
 {
-    "user_id":2,
-    "username": "Zoey",
-    "password": "pass",
-    "role": "admin"
+    "name": "Hunter filly",
+    "contact_phone": "1234567890",
+    "username": "hunter",
+    "phone_verified": false,
+    "email": "zoeyfilly@yahoo.com",
+    "email_verified": false,
+    "confirmation_code": "123456",
+    "password": "pass"
+
 }
 
 ###
@@ -15,4 +20,14 @@ Content-Type: application/json
 {
     "username": "Zoey",
     "password": "pass"
+}
+
+###
+PUT http://localhost:3000/auth/updaterole/2
+Content-Type: application/json
+
+{
+    "username": "Silas" ,
+    "password": "Ysi8sxDxOI9tu1v",
+    "role": "user"
 }

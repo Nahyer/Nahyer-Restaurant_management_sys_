@@ -11,9 +11,8 @@ POST http://localhost:3000/city/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+   "name": "house",
+  "state_id": 1
 }
 ###
 
@@ -21,9 +20,8 @@ PUT http://localhost:3000/city/1
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+   "name": "higkjk",
+  "state_id": 2
 }
 ###
 

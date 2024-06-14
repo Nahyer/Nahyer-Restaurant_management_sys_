@@ -8,6 +8,13 @@
       "when": 1717852925383,
       "tag": "0000_natural_red_shift",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1718264332961,
+      "tag": "0001_famous_energizer",
+      "breakpoints": true
     }
   ]
 }

@@ -11,9 +11,8 @@ POST http://localhost:3000/order_status/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+   "order_id": 22,
+    "status_catalog_id": 5
 }
 ###
 
@@ -21,9 +20,8 @@ PUT http://localhost:3000/order_status/1
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+   "order_id": 37,
+    "status_catalog_id": 5
 }
 ###
 

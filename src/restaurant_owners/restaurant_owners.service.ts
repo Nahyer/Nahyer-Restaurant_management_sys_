@@ -6,12 +6,57 @@ export const getRestaurant_ownersService = async (limit?: number): Promise<TSRes
   if (limit) {
    return await db.query.restaurant_owner.findMany({
       limit: limit,
+      with:{
+        users:{
+          columns:{
+            name: true,
+            contact_phone: true,
+          }
+        },
+        restaurant:{
+          columns:{
+            name: true,
+            street_address: true
+
+          }
+        }
+       }
     });
   }
-  return await db.query.restaurant_owner.findMany();
+  return await db.query.restaurant_owner.findMany({
+    with:{
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true,
+        }
+      },
+      restaurant:{
+        columns:{
+          name: true,
+          street_address: true
+        }
+      }
+     }
+  });
 };
 export const getRestaurant_ownerByIdService = async (id: number): Promise<TSRestaurant_owner | undefined> => {
   return await db.query.restaurant_owner.findFirst({
+    with:{
+      users:{
+        columns:{
+          name: true,
+          contact_phone: true,
+        }
+      },
+      restaurant:{
+        columns:{
+          name: true,
+          street_address: true
+
+        }
+      }
+     },
      where: eq(restaurant_owner.id,id)
     })
 }

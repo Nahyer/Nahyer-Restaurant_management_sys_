@@ -58,6 +58,12 @@ export const driverSchema = z.object({
 
 })
 
+
+export const statesSchema = z.object({
+    name: z.string(),
+    code: z.string()
+})
+
 export const commentsSchema = z.object({
     order_id: z.number(),
     user_id: z.number(),
@@ -68,8 +74,6 @@ export const commentsSchema = z.object({
 
 export const ordersSchema = z.object({
     restaurant_id: z.number(),
-    estimated_delivery_time: z.date(),
-    actual_delivery_time: z.date(),
     delivery_address_id: z.number(),
     user_id: z.number(),
     driver_id: z.number(),
@@ -111,7 +115,17 @@ export const loginUserSchema = z.object({
 })
 
 export const signupUserSchema = z.object({
-    user_id: z.number(),
+    name: z.string(),
+    contact_phone: z.string(),
+    username: z.string(),
+    phone_verified: z.boolean(),
+    email: z.string(),
+    email_verified: z.boolean(),
+    confirmation_code: z.string(),
+    password: z.string()
+})
+
+export const updateRoleSchema = z.object({
     username: z.string(),
     password: z.string(),
     role: z.string()

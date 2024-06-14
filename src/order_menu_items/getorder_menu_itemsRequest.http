@@ -1,7 +1,9 @@
 GET http://localhost:3000/order_menu_item
+Authorization: 
 ###
 
 GET http://localhost:3000/order_menu_item?limit=2
+Authorization: 
 ###
 
 GET http://localhost:3000/order_menu_item/13
@@ -11,19 +13,23 @@ POST http://localhost:3000/order_menu_item/create
 Content-Type: application/json
 
 {
-  "name": "Sample Name",
-  "code": "Sample Code",
-  "city": "Sample City"
+  "order_id": 38,
+    "menu_item_id": 2,
+    "quantity": 32381,
+    "item_price": "777.00",
+    "price": "322.00"
 }
 ###
 
-PUT http://localhost:3000/order_menu_item/1
+PUT http://localhost:3000/order_menu_item/8
 Content-Type: application/json
 
 {
-  "name": "Updated Name",
-  "code": "Updated Code",
-  "city": "Updated City"
+  "order_id": 36,
+    "menu_item_id": 2,
+    "quantity": 32381,
+    "item_price": "777.00",
+    "price": "322.00"
 }
 ###
 

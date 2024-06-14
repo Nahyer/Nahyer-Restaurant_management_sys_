@@ -1,12 +1,12 @@
 GET http://localhost:3000/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcxODExMjc4Nn0.mjlq0BvWup5ovtFemSqKPsWh3Q2XYzaUu_48D2UZLpo
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcxODIwMDU2M30.unqOv5RSxaTdaQKFlhIcq_sh7aTlouwzkeEPYn5Zv0A
 ###
 
 GET http://localhost:3000/users?limit=2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcxODExMjc4Nn0.mjlq0BvWup5ovtFemSqKPsWh3Q2XYzaUu_48D2UZLpo
 ###
 
-GET http://localhost:3000/users/13
+GET http://localhost:3000/users/14
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcxODExMjc4Nn0.mjlq0BvWup5ovtFemSqKPsWh3Q2XYzaUu_48D2UZLpo
 ###
 
@@ -14,7 +14,7 @@ POST http://localhost:3000/users/create
 Content-Type: application/json
 
 {
-    "name": "huuu",
+    "name": "mugambe",
     "contact_phone": "09383",
     "phone_verified": true,
     "email": "Kenna39@hotmail.com",
@@ -23,19 +23,16 @@ Content-Type: application/json
     "password": "Ysi8sxDxOI9tu1v"
 }
 ###
-
-PUT http://localhost:3000/users/1
+PUT http://localhost:3000/users/14
 Content-Type: application/json
 
 {
-    "name": "Silas",
+    "name": "kindly",
     "contact_phone": "09383",
     "phone_verified": true,
     "email": "Kenna39@hotmail.com",
     "email_verified": true,
-    "confirmation_code": "zQg4P4",
-    "password": "Ysi8sxDxOI9tu1v",
+    "confirmation_code": "zQg4P4"
 }
 ###
-
-DELETE http://localhost:3000/users/12
+DELETE http://localhost:3000/users/15

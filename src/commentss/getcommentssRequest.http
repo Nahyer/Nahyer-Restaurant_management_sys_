@@ -11,7 +11,7 @@ POST http://localhost:3000/comments/create
 Content-Type: application/json
 
 {
-  "order_id": 28,
+  "order_id": 4,
   "user_id": 9,
   "comment_text": "Nostrum tres thorax.",
   "is_complaint": false,
@@ -19,12 +19,12 @@ Content-Type: application/json
 }
 ###
 
-PUT http://localhost:3000/comments/1
+PUT http://localhost:3000/comments/20
 Content-Type: application/json
 
 {
- "order_id": 28,
-  "user_id": 9,
+ "order_id": 22,
+  "user_id": 4,
   "comment_text": "Nostrum tres thorax.",
   "is_complaint": false,
   "is_praise": true

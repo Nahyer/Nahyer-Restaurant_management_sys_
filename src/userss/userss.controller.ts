@@ -1,5 +1,6 @@
 import { Context } from "hono";
-import { getUserssService, createUsersService, getUsersByIdService, updateUsersService, DeleteUsersByIdService } from "./userss.service";
+import { getUserssService, createUsersService, getUsersByIdService, updateUserService,
+     DeleteUsersByIdService, updateUserRoleService} from "./userss.service";
 import bcrypt from "bcrypt";
 
 export const ListsUserss = async(c: Context) => {
@@ -48,7 +49,7 @@ export const UpdateUsers = async(c: Context) => {
         const Uusers = await getUsersByIdService(id);
         if (!Uusers) return c.text("Users not found", 404);
         const users = await c.req.json();
-        const upUsers = await updateUsersService(id, users);
+        const upUsers = await updateUserService(id, users);
         if (!upUsers) return c.text("Users not updated", 404);
         return c.json(upUsers, 201);
 
@@ -68,5 +69,24 @@ export const DeleteUsers = async(c: Context) => {
         return c.json(delUsers, 201);
     } catch (error: any) {
         return c.json({ message: error.message });
+    }
+}
+
+export const UpdateUserRole = async(c: Context) => {
+    const id = parseInt(c.req.param('id'));
+    if (isNaN(id)) return c.text("Invalid ID", 400);
+    try {
+        const Uusers = await getUsersByIdService(id);
+        if (!Uusers) return c.text("Users not found", 404);
+        const authrole = await c.req.json();
+        const hashedPassword = await bcrypt.hash(authrole.password, 10);
+        authrole.password = hashedPassword;
+        const upUsers = await updateUserRoleService(id, authrole);
+        console.log(upUsers);
+        if (!upUsers) return c.text("Users not updated", 404);
+        return c.json(upUsers, 201);
+
+    } catch (error: any) {
+        return c.json({ message: error.message, haaa: "hahah"});
     }
 }

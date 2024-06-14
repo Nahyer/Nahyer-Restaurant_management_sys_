@@ -3,10 +3,11 @@ import { ListsCitys, CreateCity,
      GetCityById, UpdateCity, DeleteCity} from "./citys.controller";
 import { citySchema } from "../validator";
 import { zValidator } from "@hono/zod-validator";
+import { userRoleAuth } from "../middleware/beareAuth";
 export const cityRouter = new Hono().basePath('/city')
 
-cityRouter.get("", ListsCitys);
-cityRouter.get("/:id", GetCityById);
+cityRouter.get("",userRoleAuth, ListsCitys);
+cityRouter.get("/:id",userRoleAuth, GetCityById);
 cityRouter.post("/create",zValidator('json', citySchema, (result, c) => {
     if (!result.success) {
         return c.json(result.error, 400)
