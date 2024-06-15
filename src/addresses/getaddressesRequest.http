@@ -1,13 +1,13 @@
-GET http://localhost:3000/address
+GET http://localhost:3000/api/address
 ###
 
-GET http://localhost:3000/address?limit=2
+GET http://localhost:3000/api/address?limit=2
 ###
 
-GET http://localhost:3000/address/13
+GET http://localhost:3000/api/address/13
 ###
 
-POST http://localhost:3000/address/create
+POST http://localhost:3000/api/address/create
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 ###
 
-PUT http://localhost:3000/address/14
+PUT http://localhost:3000/api/address/14
 Content-Type: application/json
 
 {
@@ -33,4 +33,4 @@ Content-Type: application/json
 }
 ###
 
-DELETE http://localhost:3000/address/12
+DELETE http://localhost:3000/api/address/12

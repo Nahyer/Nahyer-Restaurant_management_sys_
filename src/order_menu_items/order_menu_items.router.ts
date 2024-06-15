@@ -3,7 +3,7 @@ import { ListsOrder_menu_items, CreateOrder_menu_item,
      GetOrder_menu_itemById, UpdateOrder_menu_item, DeleteOrder_menu_item} from "./order_menu_items.controller";
 import { order_menu_itemSchema } from "../validator";
 import { zValidator } from "@hono/zod-validator";
-import { userRoleAuth } from "../middleware/beareAuth";
+import { adminRoleAuth, userRoleAuth } from "../middleware/beareAuth";
 export const order_menu_itemRouter = new Hono().basePath('/order_menu_item')
 
 order_menu_itemRouter.get("",userRoleAuth, ListsOrder_menu_items);
@@ -12,6 +12,6 @@ order_menu_itemRouter.post("/create",zValidator('json', order_menu_itemSchema, (
     if (!result.success) {
         return c.json(result.error, 400)
     }
-}),CreateOrder_menu_item);
-order_menu_itemRouter.put("/:id", UpdateOrder_menu_item);
-order_menu_itemRouter.delete("/:id", DeleteOrder_menu_item);
+}),adminRoleAuth,CreateOrder_menu_item);
+order_menu_itemRouter.put("/:id",adminRoleAuth, UpdateOrder_menu_item);
+order_menu_itemRouter.delete("/:id",adminRoleAuth, DeleteOrder_menu_item);

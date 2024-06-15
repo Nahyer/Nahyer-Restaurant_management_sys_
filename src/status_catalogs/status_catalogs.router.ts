@@ -14,4 +14,4 @@ status_catalogRouter.post("/create",zValidator('json', status_catalogSchema, (re
     }
 }),adminRoleAuth,CreateStatus_catalog);
 status_catalogRouter.put("/:id",adminRoleAuth, UpdateStatus_catalog);
-status_catalogRouter.delete("/:id", DeleteStatus_catalog);
+status_catalogRouter.delete("/:id",adminRoleAuth,DeleteStatus_catalog);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+
         .container {
             width: 80%;
             margin: 0 auto;
@@ -19,17 +21,21 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 50px;
         }
+
         h1 {
             color: #333;
         }
+
         p {
             line-height: 1.6;
         }
+
         code {
             background: #eee;
             padding: 2px 4px;
             border-radius: 4px;
         }
+
         pre {
             background: #eee;
             padding: 10px;
@@ -38,6 +44,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>REYHAN LUYAI</h1>
@@ -46,7 +53,7 @@
 
         <h2>Sign Up</h2>
         <p>To create a new account, send a <code>POST</code> request to the following endpoint:</p>
-        <pre><code>POST http://localhost:3000/auth/sign_up</code></pre>
+        <pre><code>POST https://restaurant-sys.azurewebsites.net/auth/sign_up</code></pre>
         <p>Request Body Example:</p>
         <pre><code>{
     "name": "Lee",
@@ -59,16 +66,18 @@
     "password": "your_password",
     "role": "User"
 }</code></pre>
-        <p>Upon successful sign-up, you will receive a verification email. Please follow the instructions in the email to verify your account.</p>
+        <p>Upon successful sign-up, you will receive a verification email. Please follow the instructions in the email
+            to verify your account.</p>
 
         <h2>Email Verification</h2>
         <p>To verify your email, click on the verification link sent to your email. The link will look like this:</p>
-        <pre><code>http://localhost:3000/auth/verify_email?code=your_confirmation_code</code></pre>
+        <pre><code>https://restaurant-sys.azurewebsites.net/auth/verify_email?code=your_confirmation_code</code></pre>
         <p>This will update your email verification status in our system.</p>
 
         <h2>Login</h2>
-        <p>Once your email is verified, you can log in by sending a <code>POST</code> request to the following endpoint:</p>
-        <pre><code>POST http://localhost:3000/auth/login</code></pre>
+        <p>Once your email is verified, you can log in by sending a <code>POST</code> request to the following endpoint:
+        </p>
+        <pre><code>POST https://restaurant-sys.azurewebsites.net/auth/login</code></pre>
         <p>Request Body Example:</p>
         <pre><code>{
     "username": "lee_username",
@@ -78,10 +87,10 @@
         <h2>Additional Endpoints</h2>
         <p>Here are some additional endpoints you can use:</p>
         <ul>
-            <li><code>GET /users</code>: Retrieve a list of users.</li>
-            <li><code>GET /users/:id</code>: Retrieve a specific user's information.</li>
-            <li><code>PUT /users/:id</code>: Update a user's information.</li>
-            <li><code>DELETE /users/:id</code>: Delete a user.</li>
+            <li><code>GET api/users</code>: Retrieve a list of users.</li>
+            <li><code>GET api/users/:id</code>: Retrieve a specific user's information.</li>
+            <li><code>PUT api/users/:id</code>: Update a user's information.</li>
+            <li><code>DELETE api/users/:id</code>: Delete a user.</li>
         </ul>
         <p>Replace <code>:id</code> with the actual user ID.</p>
 
@@ -89,4 +98,5 @@
         <p>If you have any questions or need further assistance, please contact our support team.</p>
     </div>
 </body>
+
 </html>

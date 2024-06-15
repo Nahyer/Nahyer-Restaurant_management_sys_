@@ -1,25 +1,25 @@
-POST  http://localhost:3000/auth/sign_up
+POST  http://localhost:3000/api/auth/sign_up
 Content-Type: application/json
 
 {
-    "name": "Hunter filly",
+    "name": "reyhanluyai",
     "contact_phone": "1234567890",
-    "username": "hunter",
+    "username": "rey",
     "phone_verified": false,
     "email": "zoeyfilly@yahoo.com",
     "email_verified": false,
     "confirmation_code": "123456",
-    "password": "pass"
+    "password": "Appple123"
 
 }
 
 ###
-POST  http://localhost:3000/auth/login
+POST  http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "Zoey",
-    "password": "pass"
+    "username": "rey",
+    "password": "Appple123"
 }
 
 ###

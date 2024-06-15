@@ -7,13 +7,13 @@ import { zValidator } from "@hono/zod-validator";
 import { adminRoleAuth, userRoleAuth } from "../middleware/beareAuth";
 export const usersRouter = new Hono().basePath('/users')
 
-usersRouter.get("", ListsUserss);
-usersRouter.get("/:id", GetUsersById);
+usersRouter.get("",userRoleAuth, ListsUserss);
+usersRouter.get("/:id",userRoleAuth, GetUsersById);
 usersRouter.post("/create",zValidator('json', usersSchema, (result, c) => {
     if (!result.success) {
         return c.json(result.error, 400)
     }
 }),CreateUsers);
-usersRouter.put("/:id", UpdateUsers)
+usersRouter.put("/:id",adminRoleAuth, UpdateUsers)
 
-usersRouter.delete("/:id", DeleteUsers);
+usersRouter.delete("/:id",adminRoleAuth, DeleteUsers);

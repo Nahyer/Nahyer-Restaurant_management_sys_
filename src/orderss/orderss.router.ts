@@ -3,7 +3,7 @@ import { ListsOrderss, CreateOrders,
      GetOrdersById, UpdateOrders, DeleteOrders} from "./orderss.controller";
 import { ordersSchema } from "../validator";
 import { zValidator } from "@hono/zod-validator";
-import { userRoleAuth } from "../middleware/beareAuth";
+import { adminRoleAuth, userRoleAuth } from "../middleware/beareAuth";
 export const ordersRouter = new Hono().basePath('/orders')
 
 ordersRouter.get("",userRoleAuth, ListsOrderss);
@@ -12,6 +12,6 @@ ordersRouter.post("/create",zValidator('json', ordersSchema, (result, c) => {
     if (!result.success) {
         return c.json(result.error, 400)
     }
-}),CreateOrders);
-ordersRouter.put("/:id", UpdateOrders);
-ordersRouter.delete("/:id", DeleteOrders);
+}),userRoleAuth,CreateOrders);
+ordersRouter.put("/:id",adminRoleAuth, UpdateOrders);
+ordersRouter.delete("/:id",adminRoleAuth, DeleteOrders);

@@ -11,7 +11,7 @@ import { min } from "drizzle-orm";
 
 async function seed() {
     console.log("Seeding.... \n")
-    for (let index = 1; index < 10; index++) {
+    // for (let index = 1; index < 10; index++) {
         // const states = await db
         // .insert(state)
         // .values({
@@ -51,18 +51,32 @@ async function seed() {
         //     })
         //     .returning({id: status_catalog.id});
        
-        // const restaurants = await db
-        //     .insert(restaurant)
-        //     .values({
-        //         id: 9,
-        //         name: faker.company.buzzAdjective(),
-        //         street_address: faker.address.streetAddress(),
-        //         zip_code: faker.location.zipCode(),
-        //         city_id: faker.number.int({min:1,max:10}),
-        //         created_at: faker.date.recent(),
-        //         updated_at: faker.date.recent()
-        //     })
-        //     .returning({id: restaurant.id});
+
+    //         const restaurnts=[
+    //             { name: 'Pizza Palace', street_address: '123 Main St', zip_code: '12345', city_id: 1 },
+    // { name: 'Burger Bistro', street_address: '456 Elm St', zip_code: '23456', city_id: 1 },
+    // { name: 'Sushi Spot', street_address: '789 Maple Ave', zip_code: '34567', city_id: 2 },
+    // { name: 'Pasta Place', street_address: '101 Oak St', zip_code: '45678', city_id: 2 },
+    // { name: 'Taco Town', street_address: '202 Pine St', zip_code: '56789', city_id: 3 },
+    // { name: 'Steakhouse', street_address: '303 Cedar St', zip_code: '67890', city_id: 3 },
+    // { name: 'Vegan Vibes', street_address: '404 Birch St', zip_code: '78901', city_id: 1},
+    // { name: 'Seafood Shack', street_address: '505 Walnut St', zip_code: '89012', city_id: 2 },
+    // { name: 'BBQ Barn', street_address: '606 Chestnut St', zip_code: '90123', city_id: 3 },
+    // { name: 'Dessert Delights', street_address: '707 Spruce St', zip_code: '01234', city_id: 2 }
+    //         ]
+    //         restaurnts.forEach(async(restaurnt) => {
+    //             await db
+    //                 .insert(restaurant)
+    //                 .values({
+    //                     name: restaurnt.name,
+    //                     street_address: restaurnt.street_address,
+    //                     zip_code: restaurnt.zip_code,
+    //                     city_id: restaurnt.city_id,
+    //                     created_at: new Date()
+    //                 })
+    //                 .returning({id: restaurant.id});
+    //         })
+      
 
         // const restaurant_owners = await db
         //     .insert(restaurant_owner)
@@ -72,19 +86,32 @@ async function seed() {
         //     })
         //     .returning({id: restaurant_owner.id});
 
-        // const addresses = await db
-        //     .insert(address)
-        //     .values({
-        //         street_address_1: faker.address.streetAddress(),
-        //         street_address_2: faker.address.streetAddress(),
-        //         zip_code: faker.location.zipCode(),
-        //         delivery_instructions: faker.lorem.sentence(),
-        //         user_id: faker.number.int({min:1,max:10}),
-        //         city_id: faker.number.int({min:1,max:15}),
-        //         created_at: faker.date.recent(),
-        //         updated_at: faker.date.recent()
+        // const addresses = [
+        //     { street_address_1: '123 Main St', street_address_2: 'Apt 4B', zip_code: '12345', delivery_instructions: 'Leave at the front door', user_id: 10, city_id: 1 },
+        //     { street_address_1: '456 Elm St', street_address_2: 'Suite 5', zip_code: '23456', delivery_instructions: 'Leave with the doorman', user_id: 2, city_id: 2 },
+        //     { street_address_1: '789 Maple Ave', street_address_2: 'Unit 10', zip_code: '34567', delivery_instructions: 'Ring the bell', user_id: 3, city_id: 3 },
+        //     { street_address_1: '101 Oak St', street_address_2: '', zip_code: '45678', delivery_instructions: 'Leave in the mailbox', user_id: 4, city_id: 2 },
+        //     { street_address_1: '202 Pine St', street_address_2: 'Floor 2', zip_code: '56789', delivery_instructions: 'Hand it over personally', user_id: 5, city_id: 2 },
+        //     { street_address_1: '303 Cedar St', street_address_2: 'Apt 1A', zip_code: '67890', delivery_instructions: 'Leave at the side door', user_id: 6, city_id: 2 },
+        //     { street_address_1: '404 Birch St', street_address_2: 'Suite 200', zip_code: '78901', delivery_instructions: 'Leave at the back door', user_id: 7, city_id:1 },
+        //     { street_address_1: '505 Walnut St', street_address_2: 'Unit 8', zip_code: '89012', delivery_instructions: 'Ring the bell twice', user_id: 8, city_id: 2 },
+        //     { street_address_1: '606 Chestnut St', street_address_2: 'Floor 3', zip_code: '90123', delivery_instructions: 'Leave with the receptionist', user_id: 9, city_id:3 },
+        //     { street_address_1: '707 Spruce St', street_address_2: 'Room 12', zip_code: '01234', delivery_instructions: 'Leave it in the lobby', user_id: 10, city_id:3 }
+        //   ];
+        //     addresses.forEach(async(addres) => {
+        //         await db
+        //             .insert(address)
+        //             .values({
+        //                 street_address_1: addres.street_address_1,
+        //                 street_address_2: addres.street_address_2,
+        //                 zip_code: addres.zip_code,
+        //                 delivery_instructions: addres.delivery_instructions,
+        //                 user_id: addres.user_id,
+        //                 city_id: addres.city_id,
+        //                 created_at: new Date()
+        //             })
+        //             .returning({id: address.id});
         //     })
-        //     .returning({id: address.id});
 
         
 
@@ -176,11 +203,12 @@ async function seed() {
         //     .returning({id: order_status.id});
 
         // console.log(user);
-        // console.log(status_catalogs);     
+        // console.log(status_catalogs);    
+        console.log("Seeding succesdful.... \n"); 
     }
       
-    console.log("Seeding succesdful.... \n");
-}
+    
+// }
 
 seed().catch((err) => {
     console.error(err);

@@ -4,6 +4,7 @@ import { loginUserSchema, signupUserSchema, updateRoleSchema } from "../validato
 import { loginUser, signUpUser } from "./auth.controller"
 import { z } from "zod"
 import { UpdateUserRole } from "../userss/userss.controller"
+import { adminRoleAuth } from "../middleware/beareAuth"
 
 export const authRouter = new Hono().basePath('/auth')
 
@@ -23,5 +24,5 @@ authRouter.put("/updaterole/:id",zValidator('json', updateRoleSchema, (result, c
     if (!result.success) {
         return c.json(result.error, 400)
     }
-}),UpdateUserRole)
+}),adminRoleAuth,UpdateUserRole)
 

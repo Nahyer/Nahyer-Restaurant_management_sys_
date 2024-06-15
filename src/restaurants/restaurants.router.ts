@@ -3,7 +3,7 @@ import { ListsRestaurants, CreateRestaurant,
      GetRestaurantById, UpdateRestaurant, DeleteRestaurant} from "./restaurants.controller";
 import { restaurantSchema } from "../validator";
 import { zValidator } from "@hono/zod-validator";
-import { restuRoleAuth, userRoleAuth } from "../middleware/beareAuth";
+import { adminRoleAuth, restuRoleAuth, userRoleAuth } from "../middleware/beareAuth";
 export const restaurantRouter = new Hono().basePath('/restaurant')
 
 restaurantRouter.get("",userRoleAuth,ListsRestaurants);
@@ -12,6 +12,6 @@ restaurantRouter.post("/create",zValidator('json', restaurantSchema, (result, c)
     if (!result.success) {
         return c.json(result.error, 400)
     }
-}),CreateRestaurant);
-restaurantRouter.put("/:id", UpdateRestaurant);
-restaurantRouter.delete("/:id", DeleteRestaurant);
+}),restuRoleAuth,CreateRestaurant);
+restaurantRouter.put("/:id",adminRoleAuth, UpdateRestaurant);
+restaurantRouter.delete("/:id",adminRoleAuth, DeleteRestaurant);

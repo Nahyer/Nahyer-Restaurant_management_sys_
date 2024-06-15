@@ -4,6 +4,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "studio": "drizzle-kit studio",
+    "seed": "tsx src/drizzle/seed.ts",
     "push": "drizzle-kit push",
     "pushL": " drizzle-kit generate && tsx src/drizzle/migrate.ts"
   },

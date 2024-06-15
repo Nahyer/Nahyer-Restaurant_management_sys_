@@ -28,6 +28,9 @@ app.use(logger())
 app.use(trimTrailingSlash())
 
 app.get('/', (c) => {
+  return c.redirect('/api');
+});
+app.get('/api', (c) => {
   return c.html(ejs.renderFile('./src/index.html'))
 })
 
@@ -40,20 +43,20 @@ serve({
   port: Number(process.env.PORT),
 })
 
-app.route("/", statesRouter)
-app.route("/", usersRouter)
-app.route("/", cityRouter)
-app.route("/", addressRouter)
-app.route("/", restaurantRouter)
-app.route("/", restaurant_ownerRouter)
-app.route("/", driverRouter)
-app.route("/", commentsRouter)
-app.route("/", ordersRouter)
-app.route("/", menu_itemRouter)
-app.route("/", categoryRouter)
-app.route("/", order_menu_itemRouter)
-app.route("/", order_statusRouter)
-app.route("/", status_catalogRouter)
-app.route("/", authRouter)
+app.route("/api", statesRouter)
+app.route("/api", usersRouter)
+app.route("/api", cityRouter)
+app.route("/api", addressRouter)
+app.route("/api", restaurantRouter)
+app.route("/api", restaurant_ownerRouter)
+app.route("/api", driverRouter)
+app.route("/api", commentsRouter)
+app.route("/api", ordersRouter)
+app.route("/api", menu_itemRouter)
+app.route("/api", categoryRouter)
+app.route("/api", order_menu_itemRouter)
+app.route("/api", order_statusRouter)
+app.route("/api", status_catalogRouter)
+app.route("/api", authRouter)
 
 console.log(`Server is running on port ${process.env.PORT}`)
